@@ -5,9 +5,10 @@ Celem tego projektu jest stworzenie prostej, responsywnej strony internetowej dl
 ---
 
 ## 🚀 Struktura projektu
+```
 frontend/#Aplikacja React+Vite+TypeScrypt
 backend/#Backend(Express+MongoDB)
-
+```
 ---
 
 ## 🛠️ Technologie
@@ -34,11 +35,14 @@ cd studio-karoli
 ```
 
 ### 2. Frontend
+```
 cd frontend
 npm install
 npm run dev
-
+```
 ### 3. Backend
+```
 cd backend
 npm install
 npm run dev   # albo node server.js
+```
