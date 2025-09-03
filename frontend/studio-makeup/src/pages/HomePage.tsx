@@ -4,6 +4,7 @@ import Gallery from "../components/Gallery";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Nav from "../components/Nav";
+import Offer from "../components/offer/Offer";
 
 const HomePage: React.FC = () => {
     return (
@@ -14,6 +15,7 @@ const HomePage: React.FC = () => {
             <Header />
             <Nav />
             <Hero />
+            <Offer />
             <Gallery />
             <About />
             <Footer />
