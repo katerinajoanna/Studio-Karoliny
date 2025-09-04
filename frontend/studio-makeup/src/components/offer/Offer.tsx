@@ -79,21 +79,21 @@ const Offer: React.FC = () => {
 
     return (
         <section id="offers" className="py-20 shadow-lg">
-            <div className="container mx-auto px-6">
-                <h1 className="text-3xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 mb-6">
+            <div className="container mx-auto px-6 font-malayalam">
+                <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 mb-6">
                     Nasza oferta
                 </h1>
 
                 {/* Kategorie */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid md:grid-cols-2 gap-8">
                     {categories.map(cat => (
                         <div
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
-                            className="bg-white/60 p-6 rounded-lg shadow-lg text-center cursor-pointer hover:shadow-xl transition"
+                            className="bg-white/40 p-6 rounded-lg shadow-lg text-center cursor-pointer hover:shadow-xl transition"
                         >
-                            <h3 className="text-xl text-textPrimary font-semibold mb-2">{cat}</h3>
-                            <p className="text-textSecondary">{cat}</p>
+                            <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-textSecondary font-medium p-1 lg:p-2 xl:p-4">{cat}</h3>
+                            {/* <p className="text-textSecondary">{cat}</p> */}
                         </div>
                     ))}
                 </div>
@@ -101,10 +101,10 @@ const Offer: React.FC = () => {
                 {/* Modal z ofertami */}
                 {selectedCategory && (
                     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                        <div className="bg-white rounded-xl shadow-xl max-w-3xl w-full p-6 relative">
+                        <div className="bg-stone-200 rounded-xl shadow-xl max-w-3xl w-full p-6 relative">
                             <button
                                 onClick={() => setSelectedCategory(null)}
-                                className="absolute top-2 right-2 text-gray-600 hover:text-black"
+                                className="absolute top-2 right-2 text-textPrimary hover:text-orange-800"
                             >
                                 ✕
                             </button>

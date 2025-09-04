@@ -9,9 +9,9 @@ const Gallery: React.FC = () => {
     const images = [img1, img2, img3, img4, img5];
 
     return (
-        <section className="flex items-center shadow-lg">
-            <div id="gallery" className="w-full mx-auto p-5">
-                <h1 className="text-3xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-4 mb-6">
+        <section id="gallery" className="flex items-center shadow-lg">
+            <div className="w-full mx-auto p-5">
+                <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 mb-6">
                     Zdjęcia
                 </h1>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-5 gap-8 mb-8">

@@ -7,10 +7,10 @@ interface OfferCardProps {
 const OfferCard: React.FC<OfferCardProps> = ({ offer }) => {
     return (
         <div>
-            <h3>{offer.service}</h3>
-            <p>{offer.description}</p>
-            <p>{offer.duration ? `Czas: ${offer.duration}` : ""}</p>
-            <p>{offer.price} zł</p>
+            <h3 className='text-base font-medium text-textPrimary'>{offer.service}</h3>
+            <p className='text-generalText'>{offer.description}</p>
+            <p className='text-generalText'>{offer.duration ? `Czas: ${offer.duration}` : ""}</p>
+            <p className='text-generalText'><strong>{offer.price}</strong> zł</p>
         </div>
     );
 };

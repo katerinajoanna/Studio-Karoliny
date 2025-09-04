@@ -1,4 +1,5 @@
 import About from "../components/About";
+import Contact from "../components/contact/Contact";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import Header from "../components/Header";
@@ -18,6 +19,7 @@ const HomePage: React.FC = () => {
             <Offer />
             <Gallery />
             <About />
+            <Contact />
             <Footer />
         </div>
     );
