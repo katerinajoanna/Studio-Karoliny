@@ -90,7 +90,7 @@ const Offer: React.FC = () => {
                         <div
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
-                            className="bg-white/40 p-6 rounded-lg shadow-lg text-center cursor-pointer hover:shadow-xl transition"
+                            className="bg-white/40 p-6 rounded-lg font-medium uppercase shadow-lg text-center cursor-pointer hover:shadow-xl transition "
                         >
                             <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-textSecondary font-medium p-1 lg:p-2 xl:p-4">{cat}</h3>
                             {/* <p className="text-textSecondary">{cat}</p> */}
@@ -104,7 +104,7 @@ const Offer: React.FC = () => {
                         <div className="bg-stone-200 rounded-xl shadow-xl max-w-3xl w-full p-6 relative">
                             <button
                                 onClick={() => setSelectedCategory(null)}
-                                className="absolute top-2 right-2 text-textPrimary hover:text-orange-800"
+                                className="absolute text-xl md:text-2xl  font-semibold top-3 right-3 text-textPrimary hover:text-orange-700"
                             >
                                 ✕
                             </button>
