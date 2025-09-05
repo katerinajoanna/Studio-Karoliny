@@ -8,7 +8,7 @@ const Header: React.FC = () => {
                 src={Logo}
                 alt="Logo"
             />
-            <div className='flex flex-col text-center text-2xl md:text-left m-4 md:m-10  md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>
+            <div className='flex flex-col text-center text-2xl md:text-left m-4 md:m-10 md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>
                 <div className='font-semibold font-playfair'>
                     <h1 className='bg-text-gradient bg-clip-text text-transparent'>BEAUTY</h1>
                     <h1 className='bg-text-gradient bg-clip-text text-transparent'>MAKEUP & BROWS</h1>

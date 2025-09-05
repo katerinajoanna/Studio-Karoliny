@@ -5,13 +5,13 @@ const Nav: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="w-full bg-gray-100/50 border shadow-lg">
-            <ul className="hidden sm:flex justify-around items-center space-x-10 font-serifTC font-medium p-3">
-                <li><a href="#home" className="text-textSecondary hover:text-hoverText transition-colors duration-300">Start</a></li>
-                <li><a href="#offers" className="text-textSecondary hover:text-hoverText transition-colors duration-300">Oferta</a></li>
-                <li><a href="#gallery" className="text-textSecondary hover:text-hoverText transition-colors duration-300">Galeria</a></li>
-                <li><a href="#about" className="text-textSecondary hover:text-hoverText transition-colors duration-300">O mnie</a></li>
-                <li><a href="#contact" className="text-textSecondary hover:text-hoverText transition-colors duration-300">Kontakt</a></li>
+        <nav className="w-full bg-gray-100/35 border shadow-lg">
+            <ul className="hidden sm:flex justify-around items-center space-x-10 font-serifTC font-medium md:font-semibold xl:font-bold text-base md:text-xl lg:text-2xl p-3 md:p-4 xl:p-5">
+                <li><a href="#home" className="text-generalText hover:text-hoverText transition-colors duration-300">Start</a></li>
+                <li><a href="#offers" className="text-generalText hover:text-hoverText transition-colors duration-300">Oferta</a></li>
+                <li><a href="#gallery" className="text-generalText hover:text-hoverText transition-colors duration-300">Galeria</a></li>
+                <li><a href="#about" className="text-generalText hover:text-hoverText transition-colors duration-300">O mnie</a></li>
+                <li><a href="#contact" className="text-generalText hover:text-hoverText transition-colors duration-300">Kontakt</a></li>
             </ul>
 
             {/* małe ekrany */}
