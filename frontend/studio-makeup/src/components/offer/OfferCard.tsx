@@ -7,7 +7,7 @@ interface OfferCardProps {
 
 const OfferCard: React.FC<OfferCardProps> = ({ offer }) => {
     return (
-        <div className="text-lg md:text-xl xl:text-2xl p-4 sm:p-6 lg:p-8 bg-white/50 rounded-lg shadow-md w-full sm:max-w-sm lg:max-w-md">
+        <div className="w-full bg-[rgba(64,46,15,0.05)] text-lg md:text-xl xl:text-2xl p-4 sm:p-6 lg:p-8 rounded-lg shadow-md sm:max-w-sm lg:max-w-md">
             <h3 className=" sm:text-lg lg:text-2xl font-medium uppercase text-textPrimary">
                 {offer.service}
             </h3>

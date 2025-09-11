@@ -5,7 +5,7 @@ const Nav: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="w-full bg-gray-100/35 border shadow-lg">
+        <nav className="w-full bg-[rgba(64,46,15,0.05)] shadow-lg">
             <ul className="hidden sm:flex justify-around items-center space-x-10 font-serifTC font-medium md:font-semibold xl:font-bold text-base md:text-xl lg:text-2xl p-3 md:p-4 xl:p-5">
                 <li><a href="#home" className="text-generalText hover:text-hoverText transition-colors duration-300">Start</a></li>
                 <li><a href="#offers" className="text-generalText hover:text-hoverText transition-colors duration-300">Oferta</a></li>

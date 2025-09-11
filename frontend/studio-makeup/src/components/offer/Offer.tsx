@@ -90,7 +90,7 @@ const Offer: React.FC = () => {
                         <div
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
-                            className="bg-white/40 p-6 rounded-lg font-medium uppercase shadow-lg text-center cursor-pointer hover:shadow-xl transition "
+                            className="bg-[rgba(64,46,15,0.05)] p-6 rounded-lg font-medium uppercase shadow-lg text-center cursor-pointer hover:shadow-xl transition "
                         >
                             <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-textSecondary font-medium p-1 lg:p-2 xl:p-4">{cat}</h3>
                             {/* <p className="text-textSecondary">{cat}</p> */}
