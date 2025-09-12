@@ -29,8 +29,9 @@
 
 
 
-// eksperyment z backroud-attachmet
+// backroud-attachmet
 import About from "../components/About";
+import BackToTop from "../components/buttons/backToTop";
 import Contact from "../components/contact/Contact";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
@@ -54,6 +55,11 @@ const HomePage: React.FC = () => {
             <About />
             <Contact />
             <Footer />
+            <BackToTop />
+            {/* <button className="fixed bottom-5 right-5 z-50 rounded-full bg-red-600 p-3 text-white shadow-md">
+                ↑
+            </button> */}
+
         </div>
     );
 };
