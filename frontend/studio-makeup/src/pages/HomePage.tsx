@@ -43,7 +43,7 @@ import Offer from "../components/offer/Offer";
 const HomePage: React.FC = () => {
     return (
         <div
-            className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
+            className="min-h-[300vh]  flex flex-col bg-cover bg-center bg-fixed"
             style={{ backgroundImage: "url('/background4.png')" }}
         >
 
@@ -56,10 +56,6 @@ const HomePage: React.FC = () => {
             <Contact />
             <Footer />
             <BackToTop />
-            {/* <button className="fixed bottom-5 right-5 z-50 rounded-full bg-red-600 p-3 text-white shadow-md">
-                ↑
-            </button> */}
-
         </div>
     );
 };

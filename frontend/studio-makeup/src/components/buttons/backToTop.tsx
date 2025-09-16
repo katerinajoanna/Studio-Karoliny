@@ -1,39 +1,35 @@
+
 import React, { useEffect, useState } from "react";
 
 const BackToTop: React.FC = () => {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-        const toggleVisibility = () => {
-            setVisible(window.scrollY > 100);
+        const handleScroll = () => {
+            setVisible(window.scrollY > 500);
         };
 
-        window.addEventListener("scroll", toggleVisibility);
+        window.addEventListener("scroll", handleScroll);
 
-        // od razu sprawdzamy scroll
-        toggleVisibility();
+        // sprawdzenie od razu
+        handleScroll();
 
-        return () => window.removeEventListener("scroll", toggleVisibility);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-
-        console.log("scrollY:", window.scrollY, "visible:", visible);
-
     };
 
     return (
-        <>
-            <button
-                onClick={scrollToTop}
-                className={`fixed bottom-5 right-5 z-50 rounded-full bg-gray-800 p-3 text-white shadow-md hover:bg-red-700 hover:shadow-lg transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-50 pointer-events-none"
-                    }`}
-                aria-label="Back to top"
-            >
-                ↑
-            </button>
-        </>
+        <button
+            onClick={scrollToTop}
+            className={`fixed bottom-10 right-10 z-[9999] p-4 text-yellow-700 text-2xl lg:text-3xl xl:text-4xl font-bold shadow-lg hover:text-yellow-500 transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
+            aria-label="Back to top"
+        >
+            ↑
+        </button>
     );
 };
 
