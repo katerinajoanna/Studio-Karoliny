@@ -11,6 +11,7 @@ export default {
         textSecondary: '#3E3535',
         generalText: '#6E5325',
         hoverText: '#E8B24D',
+        helloText: '#796419'
       },
       fontFamily: {
         cherish: ["Cherish", "cursive"],

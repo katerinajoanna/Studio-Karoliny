@@ -39,18 +39,12 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                    {/* <button
-                        type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white/95 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Wyślij
-                    </button> */}
 
                     <button
                         type="submit"
                         className="bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white/95 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
                         Wyślij
                     </button>
-
 
                 </div>
             </form>

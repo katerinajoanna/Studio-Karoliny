@@ -43,7 +43,7 @@ import Offer from "../components/offer/Offer";
 const HomePage: React.FC = () => {
     return (
         <div
-            className="min-h-[300vh]  flex flex-col bg-cover bg-center bg-fixed"
+            className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
             style={{ backgroundImage: "url('/background4.png')" }}
         >
 

@@ -80,7 +80,7 @@ const Offer: React.FC = () => {
     return (
         <section id="offers" className="py-20 shadow-lg">
             <div className="container mx-auto px-6 font-malayalam">
-                <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 mb-6">
+                <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 my-12 italic">
                     Nasza oferta
                 </h1>
 
