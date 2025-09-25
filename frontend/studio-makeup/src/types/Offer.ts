@@ -1,5 +1,5 @@
 export interface Offer {
-    _id: string;
+    _id?: string;
     category: string;
     service: string;
     price: number;
