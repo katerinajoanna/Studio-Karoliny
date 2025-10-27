@@ -44,7 +44,7 @@ export const updateOffer = async (serviceData: ServicePayload): Promise<ServiceP
 
 // usuwanie pojedynczej uslugi
 export const deleteService = async (serviceId: string) => {
-    const res = await fetch(`${BASE_URL}/${serviceId}`, {
+    const res = await fetch(`${BASE_URL}/service/${serviceId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${TOKEN}` },
     });
@@ -64,3 +64,5 @@ export const deleteCategory = async (categoryId: string) => {
     if (!res.ok) throw new Error('Błąd przy usuwaniu kategorii');
     return res.json();
 };
+
+
