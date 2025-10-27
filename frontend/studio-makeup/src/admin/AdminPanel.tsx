@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { getOffers, createOffer, updateOffer, deleteOffer } from '../services/offersService';     // funkcje z fetch()
+import { getOffers, createOffer, updateOffer, deleteService, deleteCategory } from '../services/offersService';     // funkcje z fetch()
 import type { Offer } from '../types/Offer';
-
+import type { ServiceForm } from '../types/ServisForm';
 
 const AdminPanel: React.FC = () => {
     const [offers, setOffers] = useState<Offer[]>([]);
-    const [newOffer, setNewOffer] = useState<Offer>({ category: '', service: '', price: 0, description: '' });
-    const [editingOffer, setEditingOffer] = useState<Offer | null>(null);
+    const [newService, setNewService] = useState<ServiceForm>({
+        category: '',
+        service: '',
+        price: 0,
+        description: '',
+    });
+    const [editingOffer, setEditingOffer] = useState<ServiceForm | null>(null);
 
     useEffect(() => {
         loadOffers();
@@ -18,27 +23,32 @@ const AdminPanel: React.FC = () => {
     };
 
     const handleCreate = async () => {
-        if (!newOffer.category || !newOffer.service) return alert('Wypełnij wymagane pola');
-        await createOffer(newOffer);
-        setNewOffer({ category: '', service: '', price: 0, description: '' });
+        if (!newService.category || !newService.service) return alert('Wypełnij wymagane pola');
+        await createOffer(newService);
+        setNewService({ category: '', service: '', price: 0, description: '' });
         loadOffers();
     };
 
-    const handleDelete = async (id: string | undefined) => {
-        if (!id) return;
-        if (window.confirm('Czy na pewno chcesz usunąć tę ofertę?')) {
-            await deleteOffer(id);
+    const handleDelete = async (serviceId: string | undefined) => {
+        if (!serviceId)
+            return;
+        if (window.confirm('Czy na pewno chcesz usunąć tę usługę?')) {
+            await deleteService(serviceId);
             loadOffers();
         }
     };
 
-    const handleEditStart = (offer: Offer) => {
-        setEditingOffer({ ...offer });       // kopiuje dane oferty do edycji
+    // funkcja do usuwania calej kategorji
+    const handleDeleteCategory = async (categoryId: string, categoryName: string) => {
+        if (window.confirm(`Cy na pewno chcesz usunac cala kategorie "${categoryName} i wszystkie jej usługi?`)) {
+            await deleteCategory(categoryId);
+            loadOffers();
+        }
     };
 
     const handleEditSave = async () => {
-        if (!editingOffer || !editingOffer._id) return;
-        await updateOffer(editingOffer._id, editingOffer);
+        if (!editingOffer) return;
+        await updateOffer(editingOffer);
         setEditingOffer(null);
         loadOffers();
     };
@@ -47,42 +57,65 @@ const AdminPanel: React.FC = () => {
         <div className="p-6">
             <h1 className="text-4xl text-red-800 mb-4">Admin Panel</h1>
 
-            {/* Tabela ofert */}
-            <table className="table-auto border-collapse border border-gray-400 w-full">
-                <thead>
-                    <tr>
-                        <th className="border p-2">Kategoria</th>
-                        <th className="border p-2">Usługa</th>
-                        <th className="border p-2">Cena</th>
-                        <th className="border p-2">Opis</th>
-                        <th className="border p-2">Akcje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {offers.map((offer) => (
-                        <tr key={offer._id}>
-                            <td className="border p-2">{offer.category}</td>
-                            <td className="border p-2">{offer.service}</td>
-                            <td className="border p-2">{offer.price}</td>
-                            <td className="border p-2">{offer.description}</td>
-                            <td className="border p-2">
-                                <button
-                                    className="bg-yellow-500 text-white px-2 py-1 rounded mr-2"
-                                    onClick={() => handleEditStart(offer)}
-                                >
-                                    Edytuj
-                                </button>
-                                <button
-                                    className="bg-red-500 text-white px-2 py-1 rounded"
-                                    onClick={() => handleDelete(offer._id)}
-                                >
-                                    Usuń
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            {/* Lista kategorii z usługami */}
+            {offers.map((offer) => (
+                <div key={offer._id} className="border rounded p-4 mb-4">
+                    <div className="flex justify-between items-center mb-2">
+                        <h2 className="text-2xl font-bold">{offer.category}</h2>
+
+                        {/* przycisk usuwania kategorii */}
+                        <button
+                            className="bg-red-500 text-white px-3 py-1 rounded"
+                            onClick={() => offer._id && handleDeleteCategory(String(offer._id), offer.category)}
+                        >
+                            Usuń kategorię
+                        </button>
+                    </div>
+
+                    {/* tabela usług */}
+                    <table className="table-auto border-collapse border border-gray-400 w-full mb-2">
+                        <thead>
+                            <tr>
+                                <th className="border p-2">Usługa</th>
+                                <th className="border p-2">Cena</th>
+                                <th className="border p-2">Opis</th>
+                                <th className="border p-2">Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {offer.services.map((srv) => (
+                                <tr key={srv._id}>
+                                    <td>{srv.service}</td>
+                                    <td>{srv.price}</td>
+                                    <td>{srv.description}</td>
+                                    <td>
+                                        <button
+                                            onClick={() =>
+                                                setEditingOffer({
+                                                    category: offer.category,
+                                                    serviceId: srv._id,
+                                                    service: srv.service,
+                                                    price: srv.price,
+                                                    description: srv.description,
+                                                })
+                                            }
+                                            className="text-blue-600 mr-2"
+                                        >
+                                            Edytuj
+                                        </button>
+                                        <button
+                                            onClick={() => handleDelete(srv._id)}
+                                            className="text-red-600"
+                                        >
+                                            Usuń
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            ))}
 
             {/* Formularz dodawania nowej oferty */}
             <div className="mt-6">
@@ -90,27 +123,27 @@ const AdminPanel: React.FC = () => {
                 <input
                     className="border p-1 mr-2"
                     placeholder="Kategoria"
-                    value={newOffer.category}
-                    onChange={(e) => setNewOffer({ ...newOffer, category: e.target.value })}
+                    value={newService.category}
+                    onChange={(e) => setNewService({ ...newService, category: e.target.value })}
                 />
                 <input
                     className="border p-1 mr-2"
                     placeholder="Usługa"
-                    value={newOffer.service}
-                    onChange={(e) => setNewOffer({ ...newOffer, service: e.target.value })}
+                    value={newService.service}
+                    onChange={(e) => setNewService({ ...newService, service: e.target.value })}
                 />
                 <input
                     className="border p-1 mr-2"
                     placeholder="Cena"
                     type="number"
-                    value={newOffer.price}
-                    onChange={(e) => setNewOffer({ ...newOffer, price: +e.target.value })}
+                    value={newService.price}
+                    onChange={(e) => setNewService({ ...newService, price: +e.target.value })}
                 />
                 <input
                     className="border p-1 mr-2"
                     placeholder="Opis"
-                    value={newOffer.description}
-                    onChange={(e) => setNewOffer({ ...newOffer, description: e.target.value })}
+                    value={newService.description}
+                    onChange={(e) => setNewService({ ...newService, description: e.target.value })}
                 />
                 <button
                     className="bg-green-500 text-white px-4 py-2 rounded"

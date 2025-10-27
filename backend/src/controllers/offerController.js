@@ -1,7 +1,8 @@
-//  logika rzadan
+// logika rzadan
 
 import { Offer } from '../models/Offer.js';
 
+// Pobieranie wszystkich ofert
 export const getOffers = async (req, res, next) => {
     try {
         const items = await Offer.find();
@@ -12,31 +13,88 @@ export const getOffers = async (req, res, next) => {
     }
 };
 
+// Dodawanie nowej usługi
 export const createOffer = async (req, res, next) => {
     try {
-        const newOffer = new Offer(req.body);
-        await newOffer.save();
-        res.status(201).json(newOffer);
+        const { category, service, price, description } = req.body;
+        if (!category || !service || !price || !description)
+            return res.status(400).json({ message: 'All fields are required' });
+
+        const normalizedCategory = category.toLowerCase().replace(/\s+/g, '-');
+
+        let offer = await Offer.findOne({ category: normalizedCategory });
+
+        if (offer) {
+            // dodajemy usługę do istniejącej kategorii
+            offer.services.push({ service, price, description });
+        } else {
+            // tworzymy nową kategorię
+            offer = new Offer({
+                category: normalizedCategory,
+                services: [{ service, price, description }]
+            });
+        }
+
+        await offer.save();
+        res.status(201).json(offer);
     } catch (err) {
         next(err);
     }
 };
+
+// Aktualizacja pojedynczej usługi w kategorii   PUT /offers/:serviceId
 
 export const updateOffer = async (req, res, next) => {
     try {
-        const updated = await Offer.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        if (!updated) return res.status(404).json({ message: 'Offer not found' });
-        res.json(updated);
+        const { category, service, price, description } = req.body;
+        const { serviceId } = req.params; // 👈 ID z URL
+
+        const offer = await Offer.findOne({ category });
+        if (!offer) return res.status(404).json({ message: 'Offer not found' });
+
+        const serviceToUpdate = offer.services.id(serviceId);
+        if (!serviceToUpdate) return res.status(404).json({ message: 'Service not found' });
+
+        serviceToUpdate.service = service;
+        serviceToUpdate.price = price;
+        serviceToUpdate.description = description;
+
+        await offer.save();
+        res.json(offer);
     } catch (err) {
         next(err);
     }
 };
 
+// Usunięcie całej kategorii (oferty)
+export const deleteCategory = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const deleted = await Offer.findByIdAndDelete(id);
+        if (!deleted) return res.status(404).json({ message: 'Category not found' });
+
+        res.json({ message: 'Category deleted successfully' });
+    } catch (err) {
+        next(err);
+    }
+};
+
+
+// Usunięcie pojedynczej usługi
 export const deleteOffer = async (req, res, next) => {
     try {
-        const deleted = await Offer.findByIdAndDelete(req.params.id);
-        if (!deleted) return res.status(404).json({ message: 'Offer not found' });
-        res.json({ message: 'Offer deleted' });
+        const serviceId = req.params.id  // id uslugi z URL
+        // szukaj dokumentu , ktory zawiera usluge z tym id
+        const offer = await Offer.findOne({ "services._id": serviceId });
+        if (!offer)
+            return res.status(400).json({ message: 'Offer not found!' });
+
+        //usuniecie uslugi recznie
+        offer.services = offer.services.filter(s => s._id.toString() !== serviceId);
+        await offer.save();
+
+        res.json({ message: 'Service deleted', offer });
     } catch (err) {
         next(err);
     }
