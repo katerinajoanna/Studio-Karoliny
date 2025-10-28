@@ -87,11 +87,11 @@ const AdminPanel: React.FC = () => {
                         <tbody>
                             {offer.services.map((srv) => (
                                 <tr key={srv._id}>
-                                    <td>{srv.service}</td>
-                                    <td>{srv.price}</td>
+                                    <td >{srv.service}</td>
+                                    <td className="text-center">{srv.price}</td>
                                     <td>{srv.description}</td>
-                                    <td>{srv.duration || '-'}</td>
-                                    <td>
+                                    <td className="text-center">{srv.duration || '-'}</td>
+                                    <td className="text-center">
                                         <button
                                             onClick={() =>
                                                 setEditingOffer({
