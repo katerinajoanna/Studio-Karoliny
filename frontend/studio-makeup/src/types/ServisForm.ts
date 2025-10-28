@@ -3,5 +3,6 @@ export interface ServiceForm {
     service: string;
     price: number;
     description: string;
+    duration?: string;
     serviceId?: string;
 }

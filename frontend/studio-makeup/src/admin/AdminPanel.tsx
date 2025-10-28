@@ -10,6 +10,7 @@ const AdminPanel: React.FC = () => {
         service: '',
         price: 0,
         description: '',
+        duration: '',
     });
     const [editingOffer, setEditingOffer] = useState<ServiceForm | null>(null);
 
@@ -25,7 +26,7 @@ const AdminPanel: React.FC = () => {
     const handleCreate = async () => {
         if (!newService.category || !newService.service) return alert('Wypełnij wymagane pola');
         await createOffer(newService);
-        setNewService({ category: '', service: '', price: 0, description: '' });
+        setNewService({ category: '', service: '', price: 0, description: '', duration: '' });
         loadOffers();
     };
 
@@ -79,6 +80,7 @@ const AdminPanel: React.FC = () => {
                                 <th className="border p-2">Usługa</th>
                                 <th className="border p-2">Cena</th>
                                 <th className="border p-2">Opis</th>
+                                <th className="border p-2">Czas trwania</th>
                                 <th className="border p-2">Akcje</th>
                             </tr>
                         </thead>
@@ -88,6 +90,7 @@ const AdminPanel: React.FC = () => {
                                     <td>{srv.service}</td>
                                     <td>{srv.price}</td>
                                     <td>{srv.description}</td>
+                                    <td>{srv.duration || '-'}</td>
                                     <td>
                                         <button
                                             onClick={() =>
@@ -97,6 +100,7 @@ const AdminPanel: React.FC = () => {
                                                     service: srv.service,
                                                     price: srv.price,
                                                     description: srv.description,
+                                                    duration: srv.duration || '',
                                                 })
                                             }
                                             className="text-blue-600 mr-2"
@@ -145,6 +149,13 @@ const AdminPanel: React.FC = () => {
                     value={newService.description}
                     onChange={(e) => setNewService({ ...newService, description: e.target.value })}
                 />
+                <input
+                    className="border p-1 mr-2"
+                    placeholder="Czas trwania (np. 30 min)"
+                    value={newService.duration || ''}
+                    onChange={(e) => setNewService({ ...newService, duration: e.target.value })}
+                />
+
                 <button
                     className="bg-green-500 text-white px-4 py-2 rounded"
                     onClick={handleCreate}
@@ -181,6 +192,12 @@ const AdminPanel: React.FC = () => {
                         placeholder="Opis"
                         value={editingOffer.description}
                         onChange={(e) => setEditingOffer({ ...editingOffer, description: e.target.value })}
+                    />
+                    <input
+                        className="border p-1 mr-2"
+                        placeholder="Czas trwania"
+                        value={editingOffer.duration}
+                        onChange={(e) => setEditingOffer({ ...editingOffer, duration: e.target.value })}
                     />
                     <button
                         className="bg-blue-500 text-white px-4 py-2 rounded mr-2"

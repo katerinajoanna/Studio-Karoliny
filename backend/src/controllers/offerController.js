@@ -16,7 +16,7 @@ export const getOffers = async (req, res, next) => {
 // Dodawanie nowej usługi
 export const createOffer = async (req, res, next) => {
     try {
-        const { category, service, price, description } = req.body;
+        const { category, service, price, description, duration } = req.body;
         if (!category || !service || !price || !description)
             return res.status(400).json({ message: 'All fields are required' });
 
@@ -26,12 +26,12 @@ export const createOffer = async (req, res, next) => {
 
         if (offer) {
             // dodajemy usługę do istniejącej kategorii
-            offer.services.push({ service, price, description });
+            offer.services.push({ service, price, description, duration });
         } else {
             // tworzymy nową kategorię
             offer = new Offer({
                 category: normalizedCategory,
-                services: [{ service, price, description }]
+                services: [{ service, price, description, duration }]
             });
         }
 
@@ -46,8 +46,8 @@ export const createOffer = async (req, res, next) => {
 
 export const updateOffer = async (req, res, next) => {
     try {
-        const { category, service, price, description } = req.body;
-        const { serviceId } = req.params; // 👈 ID z URL
+        const { category, service, price, description, duration } = req.body;
+        const { serviceId } = req.params; //  ID z URL
 
         const offer = await Offer.findOne({ category });
         if (!offer) return res.status(404).json({ message: 'Offer not found' });
@@ -58,6 +58,7 @@ export const updateOffer = async (req, res, next) => {
         serviceToUpdate.service = service;
         serviceToUpdate.price = price;
         serviceToUpdate.description = description;
+        if (duration) serviceToUpdate.duration = duration   // jesli czas uslugi istnieje
 
         await offer.save();
         res.json(offer);
