@@ -1,13 +1,13 @@
 // definiuje tras
 
 import { Router } from 'express';
-import {
-    getOffers,
-    createOffer,
-    updateOffer,
-    deleteOffer,
-    deleteCategory
-} from '../controllers/offerController.js';
+
+import { getOffers } from '../controllers/getOffers.js';
+import { createOffer } from '../controllers/createOffer.js';
+import { updateOffer } from '../controllers/updateOffer.js';
+import { deleteOffer } from '../controllers/deleteOffer.js';
+import { deleteCategory } from '../controllers/deleteCategory.js';
+
 import { authAdmin } from '../middleware/authAdmin.js';
 
 const router = Router();
