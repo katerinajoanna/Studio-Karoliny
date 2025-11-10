@@ -106,14 +106,14 @@ Updates the details of a single service by its serviceId.
   "message": "Service updated successfully",
   "offer": {
     "_id": "67309e1...",
-    "category": "hairdressing",
+    "category": "category name",
     "services": [
       {
         "_id": "67309e2...",
-        "service": "Updated Haircut",
+        "service": "offer name",
         "price": 59.99,
         "description": "Updated description",
-        "duration": "45min"
+        "duration": "updated duration"
       }
     ]
   }
@@ -157,11 +157,11 @@ Deletes a specific service by its ID (not the entire category).
 **Response Example:**
 ```json
 {
-  "message": "Service deleted",
-  "offer": {
-    "_id": "67309e1...",
-    "category": "hairdressing",
-    "services": []
-  }
+	"message": "Service deleted",
+	"offer": {
+		"_id": "690c6159fe0359560ff89b29",
+		"category": "category name",
+		"services": [],
+	}
 }
 ```
