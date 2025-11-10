@@ -121,7 +121,7 @@ Updates the details of a single service by its serviceId.
 ```
 
 ## Endpoint: Delete a Category
-DELETE: http://localhost:5000/offers/category/:id
+DELETE: `http://localhost:5000/offers/category/:id`
 ### Authorization:
 Required — Admin only
 
