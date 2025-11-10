@@ -17,7 +17,7 @@ backend/#Backend(Express+MongoDB)
 - [Vite](https://vitejs.dev/)
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [TailwindCSS](https://tailwindcss.com/) _(opcjonalnie)_
+- [TailwindCSS](https://tailwindcss.com/) 
 
 ### Backend
 - [Node.js](https://nodejs.org/)
@@ -46,3 +46,6 @@ cd backend
 npm install
 node index.js
 ```
+
+## API-dokumentacja
+Zobacz [DOCUMENTATION.md](DOCUMENTATION.md) aby uzyskać szczegółowe informacje na temat punktów końcowych API.
