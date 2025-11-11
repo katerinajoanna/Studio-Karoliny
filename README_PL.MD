@@ -80,7 +80,8 @@ npm run dev
 Zobacz [DOCUMENTATION.md](DOCUMENTATION.md) aby uzyskać szczegółowe informacje na temat punktów końcowych API.
 
 ## Autor
-Katarzyna[GitHub: katerinajoanna]
+Katarzyna [GitHub: katerinajoanna]
+
 kontakt: [kasiapotar@gmail.com]
 
 ## 💡 Uwagi końcowe
