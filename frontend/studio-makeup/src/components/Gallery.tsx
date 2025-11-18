@@ -13,13 +13,13 @@ const Gallery: React.FC = () => {
                 <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 my-12 italic">
                     Zdjęcia
                 </h1>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-4 md:gap-6 lg:gap-8 mb-8">
                     {images.map((src, i) => (
-                        <div key={i} className="overflow-hidden rounded-lg shadow-lg">
+                        <div key={i} className="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1">
                             <img
                                 src={src}
                                 alt={`gallery-${i}`}
-                                className="w-full h-auto object-contain md:h-64 md:object-cover hover:scale-105 transition-transform duration-300"
+                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                             />
                         </div>
                     ))}
@@ -31,4 +31,3 @@ const Gallery: React.FC = () => {
 };
 
 export default Gallery;
-
