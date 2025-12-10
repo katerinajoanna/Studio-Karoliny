@@ -63,7 +63,7 @@ const Offer: React.FC = () => {
                 {/* Modal z usługami */}
                 {selectedCategory && (
                     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                        <div className="bg-stone-200 rounded-xl shadow-xl max-w-3xl w-full p-6 relative">
+                        <div className="bg-stone-200 rounded-xl shadow-xl max-w-3xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
                             <button
                                 onClick={() => setSelectedCategory(null)}
                                 className="absolute text-xl md:text-2xl font-semibold top-3 right-3 text-textPrimary hover:text-orange-700"
