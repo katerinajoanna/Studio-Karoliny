@@ -34,10 +34,24 @@ const Offer: React.FC = () => {
             .flatMap(o => o.services)
         : [];
 
-    const formatCategory = (cat: string) =>
-        cat
-            .replace(/-/g, " ")   // usuwa "-"
-            .replace(/\b\w/g, l => l.toUpperCase()); // pierwsza litera wielka
+
+    const formatCategory = (category: string) => {
+        const smallWords = ["i", "oraz", "a", "z", "ze", "na", "do"];
+
+        return category
+            .split("-")
+            .map((word, index) => {
+                const lower = word.toLowerCase();
+
+                if (index !== 0 && smallWords.includes(lower)) {
+                    return lower; // spójniki małą literą
+                }
+
+                // pierwsza litera duża, reszta mała
+                return lower.charAt(0).toUpperCase() + lower.slice(1);
+            })
+            .join(" ");
+    };
 
 
     return (
@@ -92,21 +106,21 @@ const Offer: React.FC = () => {
 
                     {showTerms && (
                         <div className="p-6 mt-2 bg-white rounded-xl shadow-md text-generalText leading-relaxed space-y-3 text-base md:text-lg">
-                            <p>Osoby rezerwujące termin proszone są o zapoznanie się z regulaminem oraz ze stylem moich prac.</p>
+                            <p>- Osoby rezerwujące termin proszone są o zapoznanie się z regulaminem oraz ze stylem moich prac.</p>
 
-                            <p>Pakiet ślubny liczony jest wraz z makijażem próbnym dla Panny młodej (200zł) + poprawka Pana Młodego (jeżeli jest taka potrzeba).</p>
+                            <p>- Pakiet ślubny liczony jest wraz z makijażem próbnym dla Panny młodej (200zł) + poprawka Pana Młodego (jeżeli jest taka potrzeba).</p>
 
-                            <p>Do każdego makijażu dodaje <strong>gratis zestaw poprawkowy</strong> tzn.: bibułki matujące, próbkę pomadki, aplikatory jednorazowe.</p>
+                            <p>- Do każdego makijażu dodaje <strong>gratis zestaw poprawkowy</strong> tzn.: bibułki matujące, próbkę pomadki, aplikatory jednorazowe.</p>
 
                             <p>
-                                Cennik jest liczony wraz z dojazdem w obrębie 35km od miejscowości Pomlewo.
+                                - Cennik jest liczony wraz z dojazdem w obrębie 35km od miejscowości Pomlewo.
                                 <br />
-                                Dojazd powyżej 35km od miejscowości Pomlewo liczony jest dodatkowo 2zł/km.
+                                - Dojazd powyżej 35km od miejscowości Pomlewo liczony jest dodatkowo 2zł/km.
                             </p>
 
-                            <p>Ceny pakietu nie podlegają modyfikacji. W przypadku dojazdu do mniejszej ilości osób niż deklarowano, cena nie ulega zmianie.</p>
+                            <p>- Ceny pakietu nie podlegają modyfikacji. W przypadku dojazdu do mniejszej ilości osób niż deklarowano, cena nie ulega zmianie.</p>
 
-                            <p>Rezerwując pakiet ślubny VIP akceptujesz regulamin i zasady pakietu.</p>
+                            <p>- Rezerwując pakiet ślubny VIP akceptujesz regulamin i zasady pakietu.</p>
                         </div>
                     )}
                 </div>

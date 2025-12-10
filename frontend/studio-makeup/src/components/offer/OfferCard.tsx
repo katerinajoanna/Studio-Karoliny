@@ -39,6 +39,8 @@ const OfferCard: React.FC<OfferCardProps> = ({ offer }) => {
             <h3 className="sm:text-lg lg:text-2xl font-medium uppercase text-textPrimary">
                 {offer.service}
             </h3>
+            {/* <div className="h-[1px] w-full mb-6 bg-gradient-to-r from-amber-600/60 via-amber-400 to-amber-600/60 rounded-full"></div> */}
+            <div className="border-b border-amber-600/40 mb-6"></div>
             <p className="text-generalText mt-2 p-1">{offer.description}</p>
             {offer.duration && (
                 <p className="text-generalText mt-1 p-1">Czas: {offer.duration}</p>
