@@ -50,7 +50,7 @@ const Offer: React.FC = () => {
                             onClick={() => setSelectedCategory(cat)}
                             className="bg-[rgba(64,46,15,0.05)] p-6 rounded-lg font-medium uppercase shadow-lg text-center cursor-pointer hover:shadow-xl transition "
                         >
-                            <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-textSecondary font-medium p-1 lg:p-2 xl:p-4">{cat}</h3>
+                            <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-generalText font-medium p-1 lg:p-2 xl:p-4">{cat}</h3>
                         </div>
                     ))}
                 </div>
@@ -65,7 +65,7 @@ const Offer: React.FC = () => {
                             >
                                 ✕
                             </button>
-                            <h2 className="text-2xl font-bold mb-4">{selectedCategory}</h2>
+                            <h2 className="text-2xl bg-text-gradient bg-clip-text text-transparent leading-none font-bold mb-4">{selectedCategory}</h2>
                             <div className="grid md:grid-cols-2 gap-4">
                                 {servicesToShow.map(s => (
                                     <OfferCard key={s._id} offer={s} />
@@ -81,8 +81,8 @@ const Offer: React.FC = () => {
                         onClick={() => setShowTerms(prev => !prev)}
                         className="w-full flex items-center justify-between p-4 bg-[rgba(64,46,15,0.05)] rounded-lg shadow-md hover:shadow-lg transition font-malayalam text-textSecondary"
                     >
-                        <span className="text-base md:text-xl italic">Warunki dotyczące usług</span>
-                        <span className="text-2xl">{showTerms ? "−" : "+"}</span>
+                        <span className="text-center flex-1 text-base text-generalText md:text-xl italic">Warunki dotyczące usług</span>
+                        <span className="text-2xl ml-4">{showTerms ? "−" : "+"}</span>
                     </button>
 
                     {showTerms && (
