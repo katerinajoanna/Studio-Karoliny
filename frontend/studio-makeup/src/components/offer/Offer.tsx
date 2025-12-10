@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import type { Offer as OfferType, Service } from "../../types/Offer";
 import OfferCard from "./OfferCard";
@@ -35,6 +34,12 @@ const Offer: React.FC = () => {
             .flatMap(o => o.services)
         : [];
 
+    const formatCategory = (cat: string) =>
+        cat
+            .replace(/-/g, " ")   // usuwa "-"
+            .replace(/\b\w/g, l => l.toUpperCase()); // pierwsza litera wielka
+
+
     return (
         <section id="offers" className="py-10 shadow-lg">
             <div className="container mx-auto px-6 font-malayalam">
@@ -50,7 +55,7 @@ const Offer: React.FC = () => {
                             onClick={() => setSelectedCategory(cat)}
                             className="bg-[rgba(64,46,15,0.05)] p-6 rounded-lg font-medium uppercase shadow-lg text-center cursor-pointer hover:shadow-xl transition "
                         >
-                            <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-generalText font-medium p-1 lg:p-2 xl:p-4">{cat}</h3>
+                            <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-generalText font-medium p-1 lg:p-2 xl:p-4">{formatCategory(cat)}</h3>
                         </div>
                     ))}
                 </div>
@@ -65,7 +70,7 @@ const Offer: React.FC = () => {
                             >
                                 ✕
                             </button>
-                            <h2 className="text-2xl bg-text-gradient bg-clip-text text-transparent leading-none font-bold mb-4">{selectedCategory}</h2>
+                            <h2 className="text-2xl bg-text-gradient bg-clip-text text-transparent leading-none font-bold mb-4">{formatCategory(selectedCategory)}</h2>
                             <div className="grid md:grid-cols-2 gap-4">
                                 {servicesToShow.map(s => (
                                     <OfferCard key={s._id} offer={s} />
