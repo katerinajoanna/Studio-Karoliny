@@ -34,7 +34,6 @@ const Offer: React.FC = () => {
             .flatMap(o => o.services)
         : [];
 
-
     const formatCategory = (category: string) => {
         const smallWords = ["i", "oraz", "a", "z", "ze", "na", "do"];
 
@@ -52,7 +51,6 @@ const Offer: React.FC = () => {
             })
             .join(" ");
     };
-
 
     return (
         <section id="offers" className="py-10 shadow-lg">
