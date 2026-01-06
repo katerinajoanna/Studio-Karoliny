@@ -55,14 +55,14 @@ const AdminPanel: React.FC = () => {
     };
 
     return (
-        <div className="p-6">
-            <h1 className="text-4xl text-red-800 mb-4">Admin Panel</h1>
+        <div className="bg-stone-100/80 font-montserrat p-6">
+            <h1 className="text-4xl text-helloText font-serifTC font-semibold mb-4">Admin Panel / Karolina</h1>
 
             {/* Lista kategorii z usługami */}
             {offers.map((offer) => (
                 <div key={offer._id} className="border rounded p-4 mb-4">
                     <div className="flex justify-between items-center mb-2">
-                        <h2 className="text-2xl font-bold">{offer.category}</h2>
+                        <h2 className="text-2xl text-textSecondary font-bold">{offer.category}</h2>
 
                         {/* przycisk usuwania kategorii */}
                         <button
@@ -74,7 +74,7 @@ const AdminPanel: React.FC = () => {
                     </div>
 
                     {/* tabela usług */}
-                    <table className="table-auto border-collapse border border-gray-400 w-full mb-2">
+                    <table className="table-auto text-textPrimary border-collapse border border-gray-400 w-full mb-2">
                         <thead>
                             <tr>
                                 <th className="border p-2">Usługa</th>
@@ -84,14 +84,18 @@ const AdminPanel: React.FC = () => {
                                 <th className="border p-2">Akcje</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {offer.services.map((srv) => (
-                                <tr key={srv._id}>
-                                    <td >{srv.service}</td>
-                                    <td className="text-center">{srv.price}</td>
-                                    <td>{srv.description}</td>
-                                    <td className="text-center">{srv.duration || '-'}</td>
-                                    <td className="text-center">
+                        <tbody className='text-textSecondary font-montserrat font-medium'>
+                            {offer.services.map((srv, index) => (
+                                <tr
+                                    key={srv._id}
+                                    className={index % 2 === 0 ? "bg-stone-50" : "bg-stone-200/50"}
+                                >
+                                    <td className="p-2">{srv.service}</td>
+                                    <td className="p-2 text-center">{srv.price}</td>
+                                    <td className="p-2">{srv.description}</td>
+                                    <td className="p-2 text-center">{srv.duration || '-'}</td>
+
+                                    <td className="p-2 text-center">
                                         <button
                                             onClick={() =>
                                                 setEditingOffer({
@@ -107,6 +111,7 @@ const AdminPanel: React.FC = () => {
                                         >
                                             Edytuj
                                         </button>
+
                                         <button
                                             onClick={() => handleDelete(srv._id)}
                                             className="text-red-600"
@@ -117,6 +122,8 @@ const AdminPanel: React.FC = () => {
                                 </tr>
                             ))}
                         </tbody>
+
+
                     </table>
                 </div>
             ))}
