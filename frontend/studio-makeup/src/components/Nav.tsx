@@ -27,7 +27,7 @@ const Nav: React.FC = () => {
 
             {/* rozwijane menu mobile */}
             {isOpen && (
-                <ul className="absolute right-2 top-16 bg-white/90 shadow-xl rounded-2xl p-6 w-56 space-y-4 text-center font-serifTC font-medium z-45">
+                <ul className="absolute right-2 top-16 bg-[#78714d]/50 shadow-xl rounded-2xl p-6 w-56 space-y-4 text-center font-serifTC font-medium z-50">
                     <li className="flex justify-end">
                         <button onClick={() => setIsOpen(false)} aria-label="Close Menu">
                             <X size={24} className="text-generalText hover:text-hoverText transition-colors duration-300" />
