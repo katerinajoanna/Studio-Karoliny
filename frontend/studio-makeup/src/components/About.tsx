@@ -4,13 +4,13 @@ const About: React.FC = () => {
             id="about"
             className="max-w-4xl mx-auto my-16 p-6 md:p-10 lg:p-14 shadow-lg font-malayalam text-generalText animate-fadeIn"
         >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl text-center italic bg-text-gradient bg-clip-text text-transparent mb-10">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl text-center italic font-playfair bg-text-gradient bg-clip-text text-transparent mb-10">
                 Witam serdecznie!
             </h1>
 
             <img
-                className="w-full max-w-[300px] md:max-w-[350px] xl:max-w-[420px] h-auto object-contain mx-auto mb-10 animate-fadeIn"
-                src="/karolina.png"
+                className="w-full max-w-[200px] md:max-w-[250px] xl:max-w-[300px] h-auto object-contain mx-auto mb-10 animate-fadeIn"
+                src="/karolaG-r.png"
                 alt="Zdjęcie"
             />
 

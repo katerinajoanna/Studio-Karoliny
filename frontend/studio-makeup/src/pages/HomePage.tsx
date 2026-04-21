@@ -12,9 +12,10 @@ const HomePage: React.FC = () => {
     return (
         <div
             className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
-            style={{ backgroundImage: "url('/background4.png')" }}
+            style={{
+                backgroundImage: `linear-gradient(to right, rgba(130, 126, 105, 0.25), rgba(210, 204, 148, 0.25), rgba(120, 113, 77, 0.25)), url('/background4.png')`
+            }}
         >
-
             <Header />
             <Nav />
             <Hero />
@@ -27,5 +28,9 @@ const HomePage: React.FC = () => {
         </div>
     );
 };
+
+
+
+
 
 export default HomePage;
