@@ -8,12 +8,12 @@ const Hero: React.FC = () => {
                 {/* LEFT - TEXT */}
                 <div className="flex-1 text-left animate-fadeIn font-montserrat order-2 md:order-1">
                     {/* Dodałam order-2, żeby na telefonie tekst był pod zdjęciem */}
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 italic text-helloText font-playfair">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 italic text-helloText font-playfair p-2">
                         Witaj!
                     </h1>
                     {/* Zwiekszylam nieco h1, żeby bardziej przyciągało wzrok w sekcji Hero */}
 
-                    <div className="text-base md:text-lg lg:text-xl text-generalText space-y-4">
+                    <div className="text-base md:text-lg lg:text-xl text-generalText space-y-4 p-2">
                         <p className="font-medium">Szukasz profesjonalnej wizażystki, stylistki brwi lub linergistki?</p>
                         <p>Zapraszam Cię do skorzystania z moich usług w Pomlewie i Gdańsku Kokoszkach. Istnieje także możliwość dojazdu - po wcześniejszej konsultacji.</p>
                         <p>Jestem dyplomowaną wizażystką i stylistką brwi z wieloletnim doświadczeniem. Pracuję z pasją, precyzją i na wysokiej jakości kosmetykach.</p>
