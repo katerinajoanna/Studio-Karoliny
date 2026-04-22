@@ -93,7 +93,7 @@ const Offer: React.FC = () => {
                 )}
 
                 {/* Akordeon – Warunki dotyczące usług */}
-                <div className="mt-10">
+                <div className="mt-10 mb-10">
                     <button
                         onClick={() => setShowTerms(prev => !prev)}
                         className="w-full flex items-center justify-between p-4 bg-[rgba(64,46,15,0.05)] rounded-lg shadow-md hover:shadow-lg transition font-malayalam text-textSecondary"
