@@ -10,7 +10,7 @@ const Gallery: React.FC = () => {
     return (
         <section id="gallery" className="flex items-center shadow-lg">
             <div className="w-full mx-auto p-5">
-                <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 my-12 italic">
+                <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium font-malayalam text-center bg-text-gradient bg-clip-text text-transparent p-2 my-8 italic">
                     Zdjęcia
                 </h1>
                 {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-4 md:gap-6 lg:gap-8 mb-8"> */}

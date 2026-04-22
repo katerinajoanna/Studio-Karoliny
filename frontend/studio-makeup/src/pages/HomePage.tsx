@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
             <Header />
             <Nav />
             {/* Dodalam ontener na sekcje */}
-            <div className="flex flex-col gap-16 md:gap-24">
+            <div className="flex flex-col gap-4 md:gap-8">
                 <Hero />
                 <Offer />
                 <Gallery />
