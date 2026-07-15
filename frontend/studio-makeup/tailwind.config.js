@@ -15,10 +15,13 @@ export default {
       },
       fontFamily: {
         cherish: ["Cherish", "cursive"],
-        serifTC: ["'Noto Serif TC'", "serif"],
-        malayalam: ["'Noto Sans Malayalam'", "sans-serif"],
-        playfair: ["'Playfair Display'", "serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        // serifTC: ["'Noto Serif TC'", "serif"],
+        // malayalam: ["'Noto Sans Malayalam'", "sans-serif"],
+        //playfair: ["'Playfair Display'", "serif"],
+        //montserrat: ["Montserrat", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
+        roboto: ["Roboto", "sans-serif"],
+        arial: ["Arial", "sans-serif"],
       },
       backgroundImage: {
         'text-gradient': 'linear-gradient(to top, #E8B24D 0%,#454016 100%)',

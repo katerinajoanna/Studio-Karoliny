@@ -11,7 +11,7 @@ const About: React.FC = () => {
             <div className="text-base md:text-lg lg:text-xl leading-relaxed">
                 <img
                     className="w-full max-w-[200px] md:max-w-[250px] h-auto object-contain 
-                               float-none md:float-left mx-auto md:mx-0 md:mr-8 mb-6 md:mb-4 animate-fadeIn"
+                               float-none md:float-left mx-auto md:mx-8 md:mr-8 mb-6 md:mb-4 animate-fadeIn"
                     src="/karolaG-r.png"
                     alt="Zdjęcie"
                 />
