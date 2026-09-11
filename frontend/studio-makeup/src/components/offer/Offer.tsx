@@ -73,7 +73,7 @@ const Offer: React.FC = () => {
                 </div>
 
                 {/* Modal z usługami */}
-                {selectedCategory && (
+                {/* {selectedCategory && (
                     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                         <div className="bg-stone-200 rounded-xl shadow-xl max-w-3xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
                             <button
@@ -88,6 +88,37 @@ const Offer: React.FC = () => {
                                     <OfferCard key={s._id} offer={s} />
                                 ))}
                             </div>
+                        </div>
+                    </div>
+                )} */}
+
+                {selectedCategory && (
+                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                        <div className="bg-stone-200 rounded-xl shadow-xl max-w-3xl w-full relative max-h-[90vh]">
+
+                            {/* Nagłówek modala */}
+                            <div className="sticky top-0 z-10 bg-stone-200 rounded-t-xl p-6 pb-2">
+                                <button
+                                    onClick={() => setSelectedCategory(null)}
+                                    className="absolute top-4 right-4 text-xl md:text-2xl font-semibold text-textPrimary hover:text-orange-700"
+                                >
+                                    ✕
+                                </button>
+
+                                <h2 className="text-2xl bg-text-gradient bg-clip-text text-transparent leading-none font-bold">
+                                    {formatCategory(selectedCategory)}
+                                </h2>
+                            </div>
+
+                            {/* Tylko ta część się scrolluje */}
+                            <div className="px-6 pb-6 max-h-[75vh] overflow-y-auto">
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    {servicesToShow.map(s => (
+                                        <OfferCard key={s._id} offer={s} />
+                                    ))}
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 )}
